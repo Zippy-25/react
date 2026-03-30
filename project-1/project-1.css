@@ -1,0 +1,50 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0px;
+    background-color: #333336;
+    color: white;
+}
+
+header{
+    height: 90px;
+    background-color: #21222A;
+}
+
+nav{
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+nav > span{
+    color: #34cfeb;
+    margin-left: 5px;
+    font-size: 1.3rem;
+    font-weight: 800;
+}
+
+main{
+    padding: 46px;
+}
+
+main > h1{
+    margin:0;
+    font-size: 2.4rem;
+}
+
+main > ul{
+    max-width: 400px;
+    margin-top: 46px;
+}
+
+main > ul > li{
+    padding-block: 20px;
+    line-height: 19px;;
+}
+
+main > ul > li::marker{
+    color: #34cfeb;
+}
