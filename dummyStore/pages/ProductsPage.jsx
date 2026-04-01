@@ -4,7 +4,6 @@ export default function ProductsPage({ user }) {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    // fetch just one product
     fetch("https://dummyjson.com/products/99")
       .then((res) => res.json())
       .then((data) => setProduct(data));
