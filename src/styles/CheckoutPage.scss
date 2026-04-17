@@ -1,0 +1,148 @@
+@use "variables" as *;
+
+.checkout-page {
+  max-width: 1100px;
+  margin: $space-lg auto;
+  padding: 0 $space-md;
+  font-family: $font-base;
+  color: $color-text;
+
+  > button {
+    background: none;
+    border: none;
+    color: #0066c0;
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 0;
+    margin-bottom: $space-md;
+    &:hover { text-decoration: underline; }
+  }
+
+  h1 {
+    font-size: 1.6rem;
+    margin-bottom: $space-lg;
+    border-bottom: 1px solid $color-border;
+    padding-bottom: $space-sm;
+  }
+
+  > p { color: $color-text-muted; margin-bottom: $space-md; }
+}
+
+.checkout-layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: $space-lg;
+
+  @include respond-below($bp-md) { grid-template-columns: 1fr; }
+}
+
+// ── Delivery form ────────────────────────────────────────
+form {
+  @include card;
+  padding: $space-lg;
+
+  h2 { font-size: 1.1rem; margin-bottom: $space-md; }
+  .error { @include error-banner; margin-bottom: $space-md; }
+}
+
+.co-field {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+  margin-bottom: $space-md;
+
+  label { font-size: 0.9rem; font-weight: 600; }
+
+  input {
+    padding: $space-sm $space-md;
+    border: 1px solid $color-border;
+    border-radius: $radius-sm;
+    font-size: 0.95rem;
+    font-family: $font-base;
+    outline: none;
+    transition: border-color 0.2s;
+    &:focus { border-color: $color-accent; box-shadow: 0 0 0 2px rgba($color-accent, 0.15); }
+  }
+}
+
+.place-order-btn {
+  @include btn-primary;
+  width: 100%;
+  padding: $space-sm $space-md;
+  font-size: 1rem;
+  margin-top: $space-sm;
+}
+
+// Order summary 
+.checkout-summary {
+  @include card;
+  padding: $space-lg;
+  align-self: start;
+
+  h2 { font-size: 1.1rem; margin-bottom: $space-md; }
+}
+
+.checkout-item {
+  display: flex;
+  align-items: center;
+  gap: $space-sm;
+  padding: $space-sm 0;
+  border-bottom: 1px solid $color-border;
+
+  img {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+    border-radius: $radius-sm;
+    border: 1px solid $color-border;
+  }
+
+  div {
+    flex: 1;
+    p { margin: 0; font-size: 0.85rem; @include line-clamp(2); }
+    p + p { color: $color-text-muted; margin-top: 2px; }
+  }
+
+  span { font-size: 0.9rem; font-weight: 600; white-space: nowrap; }
+}
+
+.checkout-totals {
+  margin-top: $space-md;
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+
+  div { @include flex-between; font-size: 0.9rem; color: $color-text-muted; }
+}
+
+.checkout-grand-total {
+  @include flex-between;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: $color-text !important;
+  border-top: 1px solid $color-border;
+  padding-top: $space-sm;
+  margin-top: $space-xs;
+}
+
+// Success screen
+.checkout-success {
+  @include card;
+  @include flex-center;
+  flex-direction: column;
+  gap: $space-md;
+  padding: $space-2xl $space-xl;
+  text-align: center;
+  max-width: 480px;
+  margin: $space-2xl auto;
+
+  h1 { color: $color-success; font-size: 1.8rem; }
+  p  { color: $color-text-muted; margin: 0; }
+
+  button {
+    @include btn-primary;
+    padding: $space-sm $space-xl;
+    font-size: 0.95rem;
+    margin-top: $space-sm;
+  }
+}

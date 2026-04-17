@@ -1,0 +1,95 @@
+// Colors
+$color-bg:           #eaeded;
+$color-surface:      #ffffff;
+$color-border:       #ddd;
+$color-text:         #0f1111;
+$color-text-muted:   #555;
+$color-primary:      #febd69;
+$color-primary-hover:#f3a847;
+$color-accent:       #e77600;
+$color-danger:       #B12704;
+$color-nav:          #131921;
+$color-nav-text:     #ffffff;
+$color-success:      #067D62;
+
+// Border radius
+$radius-sm: 4px;
+$radius-md: 6px;
+$radius-lg: 10px;
+
+// Shadows
+$shadow-card:       0 2px 8px rgba(0, 0, 0, 0.10);
+$shadow-card-hover: 0 6px 20px rgba(0, 0, 0, 0.18);
+
+// Typography
+$font-base: "Amazon Ember", "Segoe UI", Arial, sans-serif;
+
+// Spacing scale
+$space-xs:  4px;
+$space-sm:  8px;
+$space-md:  16px;
+$space-lg:  24px;
+$space-xl:  32px;
+$space-2xl: 48px;
+
+// Breakpoints
+$bp-sm: 480px;
+$bp-md: 720px;
+$bp-lg: 1100px;
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin card {
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  box-shadow: $shadow-card;
+}
+
+@mixin btn-primary {
+  background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+  border: 1px solid #a88734;
+  border-radius: $radius-sm;
+  font-weight: 700;
+  color: $color-text;
+  cursor: pointer;
+  font-family: $font-base;
+  transition: background 0.2s;
+
+  &:hover {
+    background: linear-gradient(to bottom, #f5d78e, #e8b830);
+  }
+}
+
+@mixin error-banner {
+  background: #fff5f5;
+  border: 1px solid #f5c6c6;
+  border-left: 4px solid $color-danger;
+  color: $color-danger;
+  padding: 14px 18px;
+  border-radius: $radius-sm;
+  font-size: 0.95rem;
+}
+
+@mixin line-clamp($lines) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@mixin respond-below($bp) {
+  @media (max-width: $bp) {
+    @content;
+  }
+}

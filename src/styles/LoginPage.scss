@@ -1,0 +1,137 @@
+@use "variables" as *;
+
+*{
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.login-page {
+  min-height: 100vh;
+  @include flex-center;
+  background: whitesmoke;
+  padding: $space-lg;
+  margin: 0;
+}
+
+.login-card {
+  background: $color-surface;
+  padding: 36px 40px;
+  border-radius: $radius-lg;
+  width: 100%;
+  max-width: 380px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+
+  // Logo inside card 
+  .login-logo {
+    @include flex-center;
+    gap: $space-sm;
+    margin-bottom: $space-lg;
+
+    &-icon { font-size: 2rem; }
+
+    &-text {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: $color-text;
+      letter-spacing: -0.5px;
+    }
+  }
+
+  // Title 
+  .login-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+    color: $color-text;
+  }
+
+  // Error banner 
+  .login-error {
+    @include error-banner;
+    margin-bottom: $space-md;
+    display: flex;
+    align-items: flex-start;
+    gap: $space-sm;
+    font-size: 0.9rem;
+
+    &-icon {
+      font-size: 1rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+  }
+
+  // Form 
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    label {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: $color-text;
+    }
+
+    input {
+      padding: 9px 12px;
+      border: 1px solid #bbb;
+      border-radius: $radius-sm;
+      font-size: 0.95rem;
+      outline: none;
+      font-family: $font-base;
+      transition: border-color 0.2s, box-shadow 0.2s;
+
+      &:focus {
+        border-color: $color-accent;
+        box-shadow: 0 0 0 3px rgba(231, 118, 0, 0.2);
+      }
+
+      &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        background: #f5f5f5;
+      }
+    }
+  }
+
+  // Submit button 
+  .login-btn {
+    @include btn-primary;
+    margin-top: 6px;
+    padding: 10px;
+    font-size: 0.95rem;
+    width: 100%;
+    @include flex-center;
+    gap: 6px;
+
+    &:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    &-loading {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+  }
+
+  // Hint 
+  .login-hint {
+    margin-top: 18px;
+    font-size: 0.82rem;
+    color: #777;
+    text-align: center;
+    padding: 10px;
+    background: #f8f8f8;
+    border-radius: $radius-sm;
+    border: 1px dashed #ddd;
+  }
+}

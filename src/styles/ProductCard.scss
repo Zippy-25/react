@@ -1,0 +1,91 @@
+@use "variables" as *;
+
+
+.product-card {
+  @include card;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  outline: none;
+  transition: box-shadow 0.2s, transform 0.2s;
+
+  &:hover,
+  &:focus-visible {
+    box-shadow: $shadow-card-hover;
+    transform: translateY(-3px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-accent;
+    outline-offset: 2px;
+  }
+
+  // Image wrapper 
+  &-img-wrap {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: #f8f8f8;
+    @include flex-center;
+    overflow: hidden;
+    padding: 12px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.25s ease;
+    }
+  }
+
+  &:hover &-img-wrap img {
+    transform: scale(1.05);
+  }
+
+  // Body 
+  &-body {
+    padding: 12px 14px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+  }
+
+  &-title {
+    font-size: 0.88rem;
+    color: $color-text;
+    line-height: 1.35;
+    @include line-clamp(2);
+    flex: 1;
+  }
+
+  &-meta {
+    @include flex-between;
+    gap: $space-sm;
+    margin-top: 2px;
+  }
+
+  &-rating {
+    font-size: 0.78rem;
+    color: $color-text-muted;
+  }
+
+  &-category {
+    font-size: 0.73rem;
+    color: #888;
+    text-transform: capitalize;
+    background: #f0f0f0;
+    padding: 2px 7px;
+    border-radius: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 90px;
+  }
+
+  &-price {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: $color-danger;
+    margin-top: $space-xs;
+  }
+}
